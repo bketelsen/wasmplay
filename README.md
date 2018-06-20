@@ -5,11 +5,7 @@ This is a proof of concept, compiling Go to web assembly and manipulating the DO
 ## Running
 * Install a WASM enabled version of Go (tip is good)
 * Makefile assumes this version of go is at ~/gowasm
-* Build server/server.go
-```
-    go build -o server-app server/server.go
-```
-* Run server-app
+* run `make run` from a shell to build the server, the wasm output, and start the server.
 * navigate to http://127.0.0.1:3000
 
 ## Unfinished things
