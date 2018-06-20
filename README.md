@@ -1,7 +1,8 @@
 # WASM Go Web "Framework"
 
 ## Running
-
+* Install a WASM enabled version of Go (tip is good)
+* Makefile assumes this version of go is at ~/gowasm
 * Build server/server.go
 ```
     go build -o server-app server/server.go
