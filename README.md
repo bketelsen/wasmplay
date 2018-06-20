@@ -12,6 +12,7 @@ This is a proof of concept, compiling Go to web assembly and manipulating the DO
 
 * finish port of honnef.co/js/dom -> https://github.com/bketelsen/go-js-dom 
 * Render() interface signature - string, string + error, error?
+* vdom diff/patch
 * Events
 * Callbacks
 * Is it worth embedding component?
