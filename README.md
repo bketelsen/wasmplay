@@ -10,6 +10,7 @@ This is a proof of concept, compiling Go to web assembly and manipulating the DO
 
 ## Unfinished things
 
+* finish port of honnef.co/js/dom -> https://github.com/bketelsen/go-js-dom 
 * Render() interface signature - string, string + error, error?
 * Events
 * Callbacks
