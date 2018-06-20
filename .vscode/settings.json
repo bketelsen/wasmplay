@@ -1,0 +1,5 @@
+{
+    "go.goroot": "/Users/bketelsen/gowasm",
+    "go.formatTool": "goimports",
+    "go.toolsGopath": "/Users/bketelsen/gowasm/tools/"
+}
