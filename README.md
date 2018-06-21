@@ -17,6 +17,14 @@ This is a proof of concept, compiling Go to web assembly and manipulating the DO
 * Callbacks
 * Is it worth embedding component?
 
+
+## Bonus Round
+
+```
+    make wasm2 && ./setup-app
+```
+A vecty app running in web assembly.  Requires my fork of vecty: https://github.com/bketelsen/vecty
+
 ## License
 MIT License
 
