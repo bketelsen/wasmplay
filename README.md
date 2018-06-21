@@ -19,11 +19,12 @@ This is a proof of concept, compiling Go to web assembly and manipulating the DO
 
 
 ## Bonus Round
+The `markdownvecty` directory contains a vecty application that builds & runs in wasm.
+Requires my fork of vecty: https://github.com/bketelsen/vecty placed at $GOPATH/src/github.com/gopherjs/vecty.
 
 ```
-    make wasm2 && ./setup-app
+    cd markdownvecty && make run
 ```
-A vecty app running in web assembly.  Requires my fork of vecty: https://github.com/bketelsen/vecty
 
 ## License
 MIT License
