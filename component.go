@@ -12,3 +12,8 @@ type Component struct {
 	Tree     *vdom.Tree
 	Template string
 }
+
+type App struct {
+	Root js.Value
+	Tree *vdom.Tree
+}
