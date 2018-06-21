@@ -2,6 +2,9 @@
 
 This is a proof of concept, compiling Go to web assembly and manipulating the DOM.  It's missing nearly *everything* that would make a framework useful.  I welcome any ideas about how to turn this into something useful.
 
+## Video
+See it in action:
+[Dropbox Link to Video](https://www.dropbox.com/s/i0zxkim3jng48u3/Screen%20Recording%202018-06-21%20at%2012.46.56%20PM.mp4?dl=0)
 ## Running
 * Install a WASM enabled version of Go (tip is good)
 * Makefile assumes this version of go is at ~/gowasm
