@@ -26,6 +26,17 @@ docker run -d -p 3000:3000 bketelsen/wasmvecty:1
 * Callbacks
 * Is it worth embedding component?
 
+## Forks
+To make this project work, there have been several forks:
+[vecty](https://github.com/gopherjs/vecty) to [gowasm/vecty](https://github.com/gowasm/vecty)
+[gopherwasm](https://github.com/hajimehoshi/gopherwasm) to [gowasm/gopherwasm](https://github.com/gowasm/gopherwasm)
+
+## Credits
+
+The TodoMVC app is from Vecty's examples by Richard Musiol.
+Much of the inspiration for the work porting vecty came from this [blog post](https://blog.owulveryck.info/2018/06/08/some-notes-about-the-upcoming-webassembly-support-in-go.html).
+
+This project isn't very much a `creation`, more an assembly of parts that already existed and were ready to be combined.  Thanks to all who worked to get Go and web assembly support to this point.
 
 ## Bonus Round
 The `markdownvecty` directory contains a vecty application that builds & runs in wasm.
