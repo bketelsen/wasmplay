@@ -5,6 +5,12 @@ This is a proof of concept, compiling Go to web assembly and manipulating the DO
 ## Video
 See it in action:
 [Dropbox Link to Video](https://www.dropbox.com/s/i0zxkim3jng48u3/Screen%20Recording%202018-06-21%20at%2012.46.56%20PM.mp4?dl=0)
+
+## Run in Docker
+```
+docker run -d -p 3000:3000 bketelsen/wasmvecty:1
+```
+
 ## Running
 * Install a WASM enabled version of Go (tip is good)
 * Makefile assumes this version of go is at ~/gowasm
