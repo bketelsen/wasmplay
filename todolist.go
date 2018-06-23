@@ -40,7 +40,7 @@ func (todoList *TodoList) Render() error {
 		return err
 	}
 	// Execute the template with the given todo and write to a buffer
-	buf := bytes.NewBuffer([]byte{})
+	buf := new(bytes.Buffer)
 	if err := tmpl.Execute(buf, todoList); err != nil {
 		return err
 	}

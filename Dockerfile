@@ -42,21 +42,19 @@ RUN set -eux; \
 	export PATH="/usr/local/go/bin:$PATH"; \
 	\
     cd /root; \
-    git clone https://go.googlesource.com/go; \
-    cd go/src; \
+    git clone https://go.googlesource.com/go gowasm; \
+    cd gowasm/src; \
     ./make.bash; \
 	\
-	export PATH="/root/go/bin:$PATH"; \
-    export GOBIN="/root/go/bin"; \
-    export GOROOT="/root/go"; \
+	export PATH="/root/gowasm/bin:$PATH"; \
+    export GOBIN="/root/gowasm/bin"; \
+    export GOROOT="/root/gowasm"; \
 	go version
 
 ENV GOPATH /go
-ENV PATH /root/go/bin:$GOPATH/bin:$PATH
+ENV PATH /root/gowasm/bin:$GOPATH/bin:$PATH
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
-RUN mkdir -p $GOPATH/src/github.com/hajimehoshi && cd $GOPATH/src/github.com/hajimehoshi && git clone https://github.com/bketelsen/gopherwasm
-RUN mkdir -p $GOPATH/src/github.com/gopherjs && cd $GOPATH/src/github.com/gopherjs && git clone https://github.com/bketelsen/vecty && cd vecty && git checkout wasm-wip
 ADD . $GOPATH/src/github.com/bketelsen/wasmplay
 WORKDIR $GOPATH/src/github.com/bketelsen/wasmplay/markdownvecty
 EXPOSE 3000
