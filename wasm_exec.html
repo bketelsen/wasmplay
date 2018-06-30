@@ -8,11 +8,10 @@ license that can be found in the LICENSE file.
 
 <head>
 	<meta charset="utf-8">
+	<title>Go wasm</title>
 </head>
 
 <body>
-    <section class="main" id="thing" >Please wait...</section>
-
 	<script src="wasm_exec.js"></script>
 	<script>
 		if (!WebAssembly.instantiateStreaming) { // polyfill
@@ -24,10 +23,10 @@ license that can be found in the LICENSE file.
 
 		const go = new Go();
 		let mod, inst;
-		WebAssembly.instantiateStreaming(fetch("example.wasm"), go.importObject).then((result) => {
+		WebAssembly.instantiateStreaming(fetch("test.wasm"), go.importObject).then((result) => {
 			mod = result.module;
 			inst = result.instance;
-            run();
+			document.getElementById("runButton").disabled = false;
 		});
 
 		async function run() {
@@ -37,7 +36,7 @@ license that can be found in the LICENSE file.
 		}
 	</script>
 
-
+	<button onClick="run();" id="runButton" disabled>Run</button>
 </body>
 
 </html>

@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	el := js.Global.Get("document").Call("getElementById", "thing")
+	el := js.Global().Get("document").Call("getElementById", "thing")
 	todolist := NewTodoList(el)
 
 	todo := Todo{

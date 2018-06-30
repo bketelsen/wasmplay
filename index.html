@@ -36,6 +36,7 @@ license that can be found in the LICENSE file.
 				<button class="clear-completed">Clear completed</button>
 			</footer>
 	<script src="wasm_exec.js"></script>
+
 	<script>
 		if (!WebAssembly.instantiateStreaming) { // polyfill
 			WebAssembly.instantiateStreaming = async (resp, importObject) => {
@@ -46,12 +47,12 @@ license that can be found in the LICENSE file.
 
 		const go = new Go();
 		let mod, inst;
-WebAssembly.instantiateStreaming(fetch("example.wasm"), go.importObject).then((result) => {
-        mod = result.module;
-    inst = result.instance;
-    run();
+		WebAssembly.instantiateStreaming(fetch("example.wasm"), go.importObject).then((result) => {
+			mod = result.module;
+			inst = result.instance;
+            run();
+		});
 
-});
 		async function run() {
 			console.clear();
 			await go.run(inst);

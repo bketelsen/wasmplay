@@ -2,3 +2,4 @@ server-app
 markdownvecty/server-app
 example.wasm
 node_modules
+example.wasm test.wasm
