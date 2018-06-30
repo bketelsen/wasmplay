@@ -2,6 +2,14 @@
 
 This is a proof of concept, compiling Go to web assembly and manipulating the DOM.  It's missing nearly *everything* that would make a framework useful.  I welcome any ideas about how to turn this into something useful.
 
+## Root Folder
+
+The root folder manipulates the DOM directly and is an incomplete programming thought. I was going to make a React-like component in Go/wasm, then I realized that Vecty already existed.  See the `markdownvecty` folder for the Vecty version.
+
+## MarkdownVecty folder
+
+The `markdownvecty` folder is a ported version of the Vecty "todomvc" example.  It uses my [fork of Vecty](https://github.com/gowasm/vecty).
+
 ## Video
 See it in action:
 [Dropbox Link to Video](https://www.dropbox.com/s/i0zxkim3jng48u3/Screen%20Recording%202018-06-21%20at%2012.46.56%20PM.mp4?dl=0)
@@ -17,19 +25,11 @@ docker run -d -p 3000:3000 bketelsen/wasmvecty:1
 * run `make run` from a shell to build the server, the wasm output, and start the server.
 * navigate to http://127.0.0.1:3000
 
-## Unfinished things
-
-* finish port of honnef.co/js/dom -> https://github.com/bketelsen/go-js-dom 
-* Render() interface signature - string, string + error, error?
-* vdom diff/patch
-* Events
-* Callbacks
-* Is it worth embedding component?
 
 ## Forks
 To make this project work, there have been several forks:
 [vecty](https://github.com/gopherjs/vecty) to [gowasm/vecty](https://github.com/gowasm/vecty)
-[gopherwasm](https://github.com/hajimehoshi/gopherwasm) to [gowasm/gopherwasm](https://github.com/gowasm/gopherwasm)
+[gopherwasm](https://github.com/hajimehoshi/gopherwasm) to [gowasm/gopherwasm](https://github.com/gowasm/gopherwasm) ** Not anymore
 
 ## Credits
 
