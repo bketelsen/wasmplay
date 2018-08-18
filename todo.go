@@ -6,7 +6,7 @@ import (
 
 	"html/template"
 
-	"github.com/albrow/vdom"
+	"github.com/gowasm/vdom"
 )
 
 type Todo struct {

@@ -1,8 +1,8 @@
 deps:
-	~/gowasm/bin/go get ./...
+	go get ./...
 
 wasm: deps
-	GOROOT=~/gowasm GOARCH=wasm GOOS=js ~/gowasm/bin/go build -o example.wasm markdown.go
+	GOARCH=wasm GOOS=js go build -o example.wasm markdown.go
 
 build-server:
 	go build -o server-app ../server/server.go

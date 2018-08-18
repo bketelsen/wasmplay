@@ -54,6 +54,7 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 
 		// Render the markdown.
 		&Markdown{Input: p.Input},
+		&Footer{Copyright: "2018 Brian"},
 	)
 }
 
@@ -77,5 +78,21 @@ func (m *Markdown) Render() vecty.ComponentOrHTML {
 		vecty.Markup(
 			vecty.UnsafeHTML(safeHTML),
 		),
+	)
+}
+
+type Footer struct {
+	vecty.Core
+	Copyright string `vecty:"prop"`
+}
+
+func (m *Footer) template() string {
+	return `<div class="footer"> ` + m.Copyright + `</div>`
+}
+
+// Render implements the vecty.Component interface.
+func (m *Footer) Render() vecty.ComponentOrHTML {
+	return elem.Div(
+		vecty.Text(m.Copyright),
 	)
 }

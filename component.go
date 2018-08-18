@@ -1,19 +1,18 @@
 package main
 
 import (
-	"syscall/js"
-
-	"github.com/albrow/vdom"
+	dom "github.com/gowasm/go-js-dom"
+	"github.com/gowasm/vdom"
 )
 
 type Component struct {
 	Name     string
-	Root     js.Value
+	Root     dom.Element
 	Tree     *vdom.Tree
 	Template string
 }
 
 type App struct {
-	Root js.Value
+	Root dom.Element
 	Tree *vdom.Tree
 }

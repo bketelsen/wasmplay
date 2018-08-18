@@ -2,11 +2,12 @@ package main
 
 import (
 	"bytes"
-	"syscall/js"
+	"fmt"
 
 	"html/template"
 
-	"github.com/albrow/vdom"
+	dom "github.com/gowasm/go-js-dom"
+	"github.com/gowasm/vdom"
 )
 
 type TodoList struct {
@@ -14,11 +15,10 @@ type TodoList struct {
 	Component
 }
 
-func NewTodoList(el js.Value) *TodoList {
+func NewTodoList(el dom.Element) *TodoList {
 	comp := Component{
 		Name:     "todolist",
 		Root:     el,
-		Tree:     &vdom.Tree{},
 		Template: todolisttemplate,
 	}
 	return &TodoList{
@@ -28,8 +28,8 @@ func NewTodoList(el js.Value) *TodoList {
 }
 
 var todolisttemplate = `<ul>
-{{range $i, $x := $.Todos}} 
-	{{$x.Render}} 
+{{range $i, $x := $.Todos}}
+	{{$x.Render}}
 {{end}}
 </ul>`
 
@@ -49,25 +49,32 @@ func (todoList *TodoList) Render() error {
 	if err != nil {
 		return err
 	}
-
 	if todoList.Tree != nil {
 		// Calculate the diff between this render and the last render
-		//	patches, err := vdom.Diff(todo.tree, newTree)
-		//	if err != nil {
-		//		return err
-		//	}
+		patches, err := vdom.Diff(todoList.Tree, newTree)
+		if err != nil {
+			return err
+		}
 
 		// Effeciently apply changes to the actual DOM
-		//		if err := patches.Patch(todo.Root); err != nil {
-		//			return err
-		//		}
+		if err := patches.Patch(todoList.Root); err != nil {
+			return err
+		}
 	} else {
 
 		todoList.Tree = newTree
 	}
 	// Remember the virtual DOM state for the next render to diff against
 	todoList.Tree = newTree
-
-	todoList.Root.Set("innerHTML", string(newTree.HTML()))
+	enumChildren(0, newTree.Children)
+	todoList.Root.SetInnerHTML(string(newTree.HTML()))
 	return nil
+}
+
+func enumChildren(level int, children []vdom.Node) {
+	for i, child := range children {
+		fmt.Printf("%d Child %d is %v\n", level, i, child)
+		enumChildren(level+1, child.Children())
+	}
+	return
 }
